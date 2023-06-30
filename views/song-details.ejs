@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${song.name} | Tune List`}) %>
+    <link rel="stylesheet" href="/styles/song-details.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <img src="<%= song.photo %>">
+        <h2 class="song-name"><%= song.name %></h2>
+        <section>
+            <p><strong>Title:</strong> <%= song.name %></p>
+            <p><strong>Artist:</strong> <%= song.artist %></p>
+            <p><strong>Album:</strong> <%= song.album %></p>
+            <p><strong>Duration:</strong> <%= song.timeLength%></p>
+            <p><strong>Description:</strong> <%= song.description %></p>
+        </section>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

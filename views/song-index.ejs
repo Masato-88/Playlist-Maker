@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Tune List'}) %>
+    <link rel="stylesheet" href="/styles/song-index.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <section class="hero">
+        <h2>Songs</h2>
+        <h3>What songs would you like to add to your playlist?</h3>
+    </section>
+
+    <main>
+        <section class="listings">
+            <ul>
+                <% for (let song of songs) { %>
+                <li>
+                    <figure>
+                        <img src="<%= song.photo %>">
+                        <figcaption>
+                            <h4><%= song.name %></h4>
+                            <p><%= song.album %>, <%= song.artist %>, <%= song.timeLength %></p>
+                            <a href="/songs/<%= song._id %>">Learn More</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
