@@ -42,13 +42,38 @@ router.get('/:id', function (req, res) {
 })
 
 // Create Route (POST/Create): This route receives the POST request sent from the new route,
-// creates a new pet document using the form data, 
-// and redirects the user to the new pet's show page
+// creates a new song document using the form data, 
+// and redirects the user to the new song's show page
 router.post('/', (req, res) => {
     db.Song.create(req.body)
         .then(song => res.json(song))
 })
 
+// Edit Route (GET/Read): This route renders a form
+// the user will use to PUT (edit) properties of an existing song
+router.get('/:id/edit', (req, res) => {
+    db.Song.findById(req.params.id)
+        .then(song => res.send('You\'ll be editing song ' + song._id))
+})
+
+// Update Route (PUT/Update): This route receives the PUT request sent from the edit route, 
+// edits the specified pet document using the form data,
+// and redirects the user back to the show page for the updated location.
+router.put('/:id', (req, res) => {
+    db.Song.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    )
+        .then(song => res.json(song))
+})
+
+// Destroy Route (DELETE/Delete): This route deletes a song document 
+// using the URL parameter (which will always be the song document's ID)
+router.delete('/:id', (req, res) => {
+    db.Song.findByIdAndRemove(req.params.id)
+        .then(song => res.send('You\'ve deleted song ' + song._id))
+})
 
 
 /* Export these routes so that they are accessible in `server.js`
