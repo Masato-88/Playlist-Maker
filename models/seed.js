@@ -4,7 +4,7 @@ const songs = [
         artist: "Rokazer",
         album: "Perspective EP",
         photo: "https://geo-media.beatport.com/image_size/500x500/9eb36c9a-928e-47d4-8695-3022f3316204.jpg",
-        timeLength: "6:04"
+        timeLength: "6:04",
     },
     
     {

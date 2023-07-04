@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `Edit ${song.name} | Tune List`}) %>
+    <link rel="stylesheet" href="/styles/song-form.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <section class="hero">
+        <h2>Edit a Listing</h2>
+        <h4><i>Helping people create their ideal playlist</i></h4>
+    </section>
+
+    <form method="POST" action="/songs/<%= song._id %>?_method=PUT">
+        <!-- Name input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= song.name %>" required>
+        <br>
+        <!-- Artist input -->
+        <label for="artist">Age:</label>
+        <input type="text" id="artist" name="artist" value="<%= song.age %>" required>
+        <br>
+        <!-- Album input -->
+        <label for="album">Album:</label>
+        <input type="text" id="album" name="album" value="<%= song.album %>">
+        <br>
+        <!-- Photo input -->
+        <label for="photo">Photo (URL):</label>
+        <input type="text" id="photo" name="photo" value="<%= song.photo %>" required>
+        <br>
+    </form>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

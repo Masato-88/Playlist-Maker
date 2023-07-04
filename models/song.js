@@ -1,5 +1,6 @@
 // Require the Mongoose package
 const mongoose = require('mongoose');
+const playlistSchema = require('./playlist.js')
 
 // Create a schema to define the properties of the pets collection
 const songSchema = new mongoose.Schema({

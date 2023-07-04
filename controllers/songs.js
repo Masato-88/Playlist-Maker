@@ -15,7 +15,7 @@ const db = require('../models')
 router.get('/', function (req, res) {
     db.Song.find({})
         .then(songs => {
-            res.render('song-index', {
+            res.render('song/song-index', {
                 songs: songs
             })
         })
@@ -25,7 +25,7 @@ router.get('/', function (req, res) {
 // New Route (GET/Read): This route renders a form 
 // which the user will fill out to POST (create) a new location
 router.get('/new', (req, res) => {
-    res.send('You\'ve hit the new route!')
+    res.render('song/new-form')
 })
 
 
@@ -34,7 +34,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', function (req, res) {
     db.Song.findById(req.params.id)
         .then(song => {
-            res.render('song-details', {
+            res.render('song/song-details', {
                 song: song
             })
         })
@@ -46,14 +46,14 @@ router.get('/:id', function (req, res) {
 // and redirects the user to the new song's show page
 router.post('/', (req, res) => {
     db.Song.create(req.body)
-        .then(song => res.json(song))
+        .then(song => res.redirect('/songs/' + song._id))
 })
 
 // Edit Route (GET/Read): This route renders a form
 // the user will use to PUT (edit) properties of an existing song
 router.get('/:id/edit', (req, res) => {
     db.Song.findById(req.params.id)
-        .then(song => res.send('You\'ll be editing song ' + song._id))
+        .then(song => res.render('song/edit-form', {song: song}))
 })
 
 // Update Route (PUT/Update): This route receives the PUT request sent from the edit route, 
@@ -65,14 +65,14 @@ router.put('/:id', (req, res) => {
         req.body,
         { new: true }
     )
-        .then(song => res.json(song))
+        .then(song => res.redirect('/songs/' + song._id))
 })
 
 // Destroy Route (DELETE/Delete): This route deletes a song document 
 // using the URL parameter (which will always be the song document's ID)
 router.delete('/:id', (req, res) => {
     db.Song.findByIdAndRemove(req.params.id)
-        .then(song => res.send('You\'ve deleted song ' + song._id))
+        .then(song => res.redirect('/songs'))
 })
 
 
