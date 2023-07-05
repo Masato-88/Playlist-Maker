@@ -21,7 +21,7 @@
         <br>
         <!-- Artist input -->
         <label for="artist">Artist:</label>
-        <input type="text" id="artist" name="artist" min="0" required>
+        <input type="text" id="artist" name="artist" required>
         <br>
         <!-- Album input -->
         <label for="album">Album:</label>
@@ -31,6 +31,10 @@
         <label for="photo">Album Art (URL):</label>
         <input type="text" id="photo" name="photo" required>
         <br>
+        <!-- Time input-->
+        <label for="timeLength">Duration:</label>
+        <input type="text" id="timeLength" name="timeLength" required>
+        <input type="submit" value="Add">
     </form>
 
     <%- include('../partials/footer.ejs') %>

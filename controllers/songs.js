@@ -38,7 +38,7 @@ router.get('/:id', function (req, res) {
                 song: song
             })
         })
-        .catch(() => res.send('404 Error: Page Not Found'))
+        .catch(() => res.render('404'))
 })
 
 // Create Route (POST/Create): This route receives the POST request sent from the new route,

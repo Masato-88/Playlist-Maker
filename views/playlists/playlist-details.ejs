@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'My Playlists | Tune List'}) %>
+    <link rel="stylesheet" href="/styles/playlist-details.css">
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <section class="playlist">
+        <h1>Playlist: <%= play.playlistName %></h1>
+        <table>
+            <tr>
+                <th>
+                    <h2>Description:</h2>
+                </th>
+                <td>
+                    <h2><%= play.playlistDescription %></h2>
+                </td>
+            </tr>
+            
+        </table>
+
+        <div class="actions">
+            <form method="POST" action="/playlists/<%= play._id %>?_method=DELETE">
+                <input class="btn" type="submit" value="Delete" />
+            </form>
+        </div>
+    </section>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

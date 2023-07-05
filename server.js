@@ -102,7 +102,7 @@ app.use('/playlists', playlistsCtrl)
 
 // The "catch-all" route: Runs for any other URL that doesn't match the above routes
 app.get('*', function (req, res) {
-    res.send('404 Error: Page Not Found')
+    res.redirect('404')
 });
 
 

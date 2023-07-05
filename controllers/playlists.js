@@ -28,18 +28,18 @@ router.get('/', (req, res) => {
 		    // rather than an array of objects containing arrays 
 	    	const flatList = []
 	    	for (let song of songs) {flatList.push(...song.playlists)}
-	    	res.render('playlists/index', {plays: flatList})
+	    	res.render('playlists/index', { plays: flatList})
 		})
 });
 
-// New Route: GET localhost:3000/playlists/new
+// New Route: GET localhost:3000/playlists/new/:songId
 router.get('/new/:songId', (req, res) => {
-    dp.Song.findById(req.params.songId)
+    db.Song.findById(req.params.songId)
     .then(song => {
         if (song) {
-            res.render('playlists/new-playlist', {song: song}) 
+            res.render('playlists/new-playlist.ejs', {song: song}) 
         } else {
-            res.send('404 Error: Page Not Found')
+            res.render('404')
         }
         
     })
@@ -49,7 +49,7 @@ router.get('/new/:songId', (req, res) => {
 router.post('/create/:songId', (req, res) => {
     db.Song.findByIdAndUpdate(
         req.params.songId,
-        { $push: { applications: req.body } },
+        { $push: { playlists: req.body } },
         { new: true }
     )
         .then(() => res.redirect('/songs/' + req.params.songId))

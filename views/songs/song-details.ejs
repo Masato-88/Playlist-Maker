@@ -21,6 +21,7 @@
 
         <section class="actions">
             <button class="btn"><a href="/songs/<%= song._id %>/edit">Edit</a></button>
+            <button class="btn"><a href="/playlists/new/<%= song._id %>">Add</a></button>
             <form method="POST" action="/songs/<%= song._id %>?_method=DELETE">
                 <input class="btn" type="submit" value="Delete" />
             </form>

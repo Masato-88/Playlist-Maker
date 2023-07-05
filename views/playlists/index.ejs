@@ -15,7 +15,6 @@
                 <% for (let play of plays) { %>
                 <li>
                     <h4><%= play.playlistName %> - <%= play.playlistDescription %></h4>
-                    <p>Created: <%= play.playlistDate %></p>
                     <a href="/playlists/<%= play._id %>">Read More</a>
                 </li>
                 <% } %>
