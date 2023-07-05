@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: `${song.name} | Tune List`}) %>
+    <%- include('../partials/head.ejs', {title: `${song.name} | Tune List`}) %>
     <link rel="stylesheet" href="/styles/song-details.css">
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
     <div>
         <img src="<%= song.photo %>">
@@ -28,7 +28,7 @@
         
     </div>
 
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

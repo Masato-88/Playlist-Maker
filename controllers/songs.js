@@ -15,7 +15,7 @@ const db = require('../models')
 router.get('/', function (req, res) {
     db.Song.find({})
         .then(songs => {
-            res.render('song/song-index', {
+            res.render('songs/song-index', {
                 songs: songs
             })
         })
@@ -25,7 +25,7 @@ router.get('/', function (req, res) {
 // New Route (GET/Read): This route renders a form 
 // which the user will fill out to POST (create) a new location
 router.get('/new', (req, res) => {
-    res.render('song/new-form')
+    res.render('songs/new-form')
 })
 
 
@@ -34,7 +34,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', function (req, res) {
     db.Song.findById(req.params.id)
         .then(song => {
-            res.render('song/song-details', {
+            res.render('songs/song-details', {
                 song: song
             })
         })
@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
 // the user will use to PUT (edit) properties of an existing song
 router.get('/:id/edit', (req, res) => {
     db.Song.findById(req.params.id)
-        .then(song => res.render('song/edit-form', {song: song}))
+        .then(song => res.render('songs/edit-form', {song: song}))
 })
 
 // Update Route (PUT/Update): This route receives the PUT request sent from the edit route, 

@@ -7,7 +7,10 @@ const songSchema = new mongoose.Schema({
     name: { type: String, required: true },
     artist: { type: String, required: true },
     photo: { type: String, required: true },
-    timeLength: {type: String, required: true }
+    timeLength: {type: String, required: true },
+    // the applications array can only accept objects that match the criteria specified
+    // in the applicationSchema. In other words, the applications array can only accept applications
+	playlists: [playlistSchema]
 });
 
 // Export the schema as a Monogoose model. 

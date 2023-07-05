@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'Create a Playlist | Tune List'}) %>
+    <link rel="stylesheet" href="/styles/song-form.css">
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <section class="hero">
+        <h2>Create New Playlist</h2>
+        <h4><i>You're adding song <a href="/songs/<%= song._id %>"><%= song.name %></a></i></h4>
+    </section>
+
+    <form action="/playlists/create/<%= song._id %>" method="POST">
+        <label for="playlistName">Playlist Name:</label><br>
+        <input type="text" id="playlistName" name="playlistName" required><br>
+
+        <label for="playlistDescription">Playlist Descreiption:</label><br>
+        <input type="descriptioin" id="playlistDescription" name="playlistDescription" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

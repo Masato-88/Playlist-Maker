@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'Add a Listing | Tune List'}) %>
+    <%- include('../partials/head.ejs', {title: 'Add a Listing | Tune List'}) %>
     <link rel="stylesheet" href="/styles/song-form.css">
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
     <section class="hero">
         <h2>Create a Listing</h2>
@@ -25,15 +25,15 @@
         <br>
         <!-- Album input -->
         <label for="album">Album:</label>
-        <input type="text" id="album" name="album" value="Unknown">
+        <input type="text" id="album" name="album" required>
         <br>
         <!-- Photo input -->
-        <label for="photo">Photo (URL):</label>
+        <label for="photo">Album Art (URL):</label>
         <input type="text" id="photo" name="photo" required>
         <br>
     </form>
 
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

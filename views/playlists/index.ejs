@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'My Playlists | Tune List'}) %>
+    <link rel="stylesheet" href="/styles/song-index.css">
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <ul>
+                <% for (let play of plays) { %>
+                <li>
+                    <h4><%= play.playlistName %> - <%= play.playlistDescription %></h4>
+                    <p>Created: <%= play.playlistDate %></p>
+                    <a href="/playlists/<%= play._id %>">Read More</a>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

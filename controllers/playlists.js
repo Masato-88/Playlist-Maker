@@ -19,25 +19,30 @@ const db = require('../models')
 
 /* Routes
 --------------------------------------------------------------- */
-// Index Route (All Applications): 
+// Index Route (All Playlists): 
 // GET localhost:3000/playlists/
 router.get('/', (req, res) => {
-	db.Song.find({}, { applications: true, _id: false })
+	db.Song.find({}, { playlists: true, _id: false })
         .then(songs => {
 		    // format query results to appear in one array, 
 		    // rather than an array of objects containing arrays 
 	    	const flatList = []
-	    	for (let song of songs) {
-	        	flatList.push(...song.playlists)
-	    	}
-	    	res.json(flatList)
-		}
-	)
+	    	for (let song of songs) {flatList.push(...song.playlists)}
+	    	res.render('playlists/index', {plays: flatList})
+		})
 });
 
 // New Route: GET localhost:3000/playlists/new
 router.get('/new/:songId', (req, res) => {
-    res.send('You\'ve reached the new route. You\'ll be making a new playlist for song ' + req.params.songId)
+    dp.Song.findById(req.params.songId)
+    .then(song => {
+        if (song) {
+            res.render('playlists/new-playlist', {song: song}) 
+        } else {
+            res.send('404 Error: Page Not Found')
+        }
+        
+    })
 })
 
 // Create Route: POST localhost:3000/playlists/
@@ -47,7 +52,7 @@ router.post('/create/:songId', (req, res) => {
         { $push: { applications: req.body } },
         { new: true }
     )
-        .then(song => res.json(song))
+        .then(() => res.redirect('/songs/' + req.params.songId))
 });
 
 // Show Route: GET localhost:3000/playlists/:id
@@ -59,7 +64,7 @@ router.get('/:id', (req, res) => {
         .then(song => {
 	        // format query results to appear in one object, 
 	        // rather than an object containing an array of one object
-            res.json(song.playlists[0])
+            res.render('playlists/playlist-details', { play: song.playlists[0] })
         })
 });
 
@@ -70,7 +75,7 @@ router.delete('/:id', (req, res) => {
         { $pull: { playlists: { _id: req.params.id } } },
         { new: true }
     )
-        .then(song => res.json(song))
+        .then(song => res.redirect('/songs/' + song._id))
 });
 
 

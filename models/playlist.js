@@ -8,8 +8,12 @@ const playlistSchema = new mongoose.Schema({
     playlistDescription: {
         type: String,
         required: false
+    },
+    playlistDate: {
+        type: String,
+        required: false
     }
 })
 
 
-module.exports = plalistSchema;
+module.exports = playlistSchema;

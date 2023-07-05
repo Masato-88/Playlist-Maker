@@ -11,7 +11,7 @@ const songs = [
         name: "Bye Bye Macadam",
         artist: "Rone",
         album: "Tohu Bohu",
-        photo: "/https://i.scdn.co/image/ab67616d0000b2730676758cf1f521b60f178274",
+        photo: "https://media.artsper.com/artwork/1159719_3_m.jpg",
         timeLength: "4:25"
     },
 
