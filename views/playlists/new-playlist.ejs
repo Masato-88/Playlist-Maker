@@ -11,7 +11,7 @@
 
     <section class="hero">
         <h2>Create New Playlist</h2>
-        <h4><i>You're adding song <a href="/songs/<%= song._id %>"><%= song.name %></a></i></h4>
+        <h4><i>You're adding the song <a href="/songs/<%= song._id %>"><%= song.name %></a></i></h4>
     </section>
 
     <form action="/playlists/create/<%= song._id %>" method="POST">

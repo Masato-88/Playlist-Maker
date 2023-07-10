@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 25px;
+}

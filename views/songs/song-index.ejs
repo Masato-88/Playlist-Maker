@@ -20,10 +20,10 @@
                 <% for (let song of songs) { %>
                 <li>
                     <figure>
-                        <img src="<%= song.photo %>">
+                        <img class="song-photo" src="<%= song.photo %>">
                         <figcaption>
                             <h4><%= song.name %></h4>
-                            <p><%= song.album %>, <%= song.artist %>, <%= song.timeLength %></p>
+                            <p><%= song.album %> <%= song.artist %>, <%= song.timeLength %></p>
                             <a href="/songs/<%= song._id %>">Learn More</a>
                         </figcaption>
                     </figure>

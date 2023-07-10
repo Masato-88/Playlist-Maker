@@ -1,8 +1,22 @@
 /* Main content styles */
-main {
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main, body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
 }
 
 .listings {
@@ -66,4 +80,9 @@ figcaption {
 
 .listings li a:hover {
     background-color: #555;
+}
+
+.song-photo {
+    width: 200px;
+    height: 200px;
 }

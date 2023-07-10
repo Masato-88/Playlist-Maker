@@ -1,15 +1,12 @@
-.card,
-.playlists {
-    max-width: 800px;
-    margin: 2rem auto;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px #ccc;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-.card {
+body {
     text-align: center;
-    padding: 20px;
 }
+
 
 img {
     width: 60%;
@@ -35,13 +32,7 @@ p {
     margin-bottom: 10px;
 }
 
-strong {
-    font-weight: bold;
-}
 
-.featured {
-    background-color: #ffd700;
-}
 
 /* Style Action Buttons */
 .actions {
@@ -51,8 +42,14 @@ strong {
     justify-content: space-between;
 }
 
+.btn {
+    background: red;
+}
+
 .btn a {
-    color: #fff;
+    color: rgb(127, 124, 124);
+    width: 100%;
+    background: white;
 }
 
 /* Playlists */
